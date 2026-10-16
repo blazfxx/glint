@@ -1,0 +1,46 @@
+{
+  "name": "@glint/desktop",
+  "productName": "Glint",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Glint: free, open-source screenshots for macOS, Windows and Linux.",
+  "author": "blazfoxx",
+  "homepage": "https://github.com/blazfxx/glint",
+  "type": "module",
+  "main": "dist-electron/main.cjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && vite build && tsx scripts/build-electron.ts",
+    "dev": "pnpm build && electron .",
+    "start": "electron .",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "e2e": "playwright test",
+    "icons": "node scripts/make-icons.mjs",
+    "dist": "pnpm build && electron-builder --publish never"
+  },
+  "dependencies": {
+    "electron-updater": "6.8.9"
+  },
+  "devDependencies": {
+    "@fontsource-variable/inter": "5.3.0",
+    "@glint/capture-core": "workspace:*",
+    "@glint/shortcuts": "workspace:*",
+    "@playwright/test": "1.56.1",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "electron": "44.5.0",
+    "electron-builder": "26.17.0",
+    "esbuild": "0.28.2",
+    "lucide-react": "1.54.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tailwindcss": "4.3.3",
+    "tsx": "4.23.15",
+    "vite": "8.3.4",
+    "vitest": "5.0.3",
+    "zod": "4.6.5"
+  }
+}

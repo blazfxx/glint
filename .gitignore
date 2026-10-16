@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dist-electron/
+release/
+coverage/
+test-results/
+playwright-report/
+.turbo/
+*.log
+.DS_Store

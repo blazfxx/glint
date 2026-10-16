@@ -1,0 +1,81 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+/* One accent, neutral greys; light and dark follow the system. */
+:root {
+  --bg: #f6f6f7;
+  --panel: #ffffff;
+  --rail: #efeff1;
+  --ink: #17181c;
+  --ink-muted: #5d6068;
+  --ink-subtle: #8b8e96;
+  --edge: #e3e4e8;
+  --edge-strong: #cfd1d6;
+  --accent: #6c5cff;
+  --accent-hover: #5a49f5;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17181c;
+    --panel: #1e1f24;
+    --rail: #141519;
+    --ink: #ececf0;
+    --ink-muted: #a1a3ab;
+    --ink-subtle: #6e7079;
+    --edge: #2a2b31;
+    --edge-strong: #393a42;
+    --accent: #7d6eff;
+    --accent-hover: #8f82ff;
+    color-scheme: dark;
+  }
+}
+
+@theme {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-rail: var(--rail);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-edge: var(--edge);
+  --color-edge-strong: var(--edge-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --font-sans:
+    'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  cursor: default;
+}
+body.page-solid {
+  background: var(--bg);
+}
+.drag {
+  -webkit-app-region: drag;
+}
+.no-drag {
+  -webkit-app-region: no-drag;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+.animate-in {
+  animation: rise 160ms ease-out;
+}

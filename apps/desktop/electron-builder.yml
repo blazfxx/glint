@@ -1,0 +1,52 @@
+appId: dev.blobby.glint
+productName: Glint
+copyright: Copyright © 2026 blazfoxx
+directories:
+  output: release
+  buildResources: build
+files:
+  - dist/**
+  - dist-electron/**
+  - assets/**
+  - package.json
+publish:
+  provider: github
+  owner: blazfxx
+  repo: glint
+  releaseType: release
+mac:
+  category: public.app-category.productivity
+  target:
+    - target: dmg
+      arch: [universal]
+    - target: zip
+      arch: [universal]
+  icon: build/icon.png
+  # No Developer ID yet: ad-hoc signed, which Apple silicon needs to run it.
+  identity: '-'
+  hardenedRuntime: false
+  minimumSystemVersion: '12.3'
+  extendInfo:
+    LSUIElement: true
+    NSScreenCaptureUsageDescription: Glint captures your screen when you take a screenshot.
+  artifactName: Glint-${version}-mac.${ext}
+win:
+  target:
+    - target: nsis
+      arch: [x64, arm64]
+  icon: build/icon.png
+  artifactName: Glint-${version}-windows-${arch}.${ext}
+nsis:
+  oneClick: true
+  perMachine: false
+linux:
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: deb
+      arch: [x64]
+  category: Graphics
+  icon: build/icon.png
+  executableName: glint
+  maintainer: blazfoxx
+  artifactName: Glint-${version}-linux-${arch}.${ext}
